@@ -1,0 +1,794 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: white;
+    color: #111;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    width: 100%;
+    height: 85px;
+    padding: 0 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: white;
+    border-bottom: 1px solid #ddd;
+
+    position: relative;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+.menu-container {
+    position: relative;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+
+    font-size: 35px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    color: #111;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-container nav {
+    position: absolute;
+
+    top: 60px;
+    right: 0;
+
+    display: none;
+    flex-direction: column;
+
+    min-width: 220px;
+
+    background: white;
+
+    border: 1px solid #ddd;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+    z-index: 100;
+}
+
+.menu-container nav.active {
+    display: flex;
+}
+
+.menu-container nav a {
+    padding: 18px 25px;
+
+    text-decoration: none;
+
+    color: #111;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.menu-container nav a:hover {
+    background: #111;
+    color: white;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+#hero {
+    position: relative;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+}
+
+.hero-background {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+}
+
+.hero-background img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.hero-background::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================
+   TEXTO ANIMADO DO HERO
+========================= */
+
+#hero .animated-title {
+    position: absolute !important;
+
+    top: 50% !important;
+    left: 50% !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    width: 650px;
+
+    padding: 35px 45px;
+
+    z-index: 10;
+
+    border: 1px solid white;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+#hero .animated-title span {
+    display: block;
+
+    font-size: clamp(45px, 6vw, 90px);
+
+    font-weight: 900;
+
+    line-height: 0.9;
+
+    letter-spacing: -3px;
+
+    color: white;
+
+    animation: textoMovendo 4s ease-in-out infinite alternate;
+}
+
+#hero .animated-title span:last-child {
+    color: #c92d2d;
+
+    animation-delay: 0.5s;
+}
+
+@keyframes textoMovendo {
+
+    0% {
+        transform: translateX(-30px);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(30px);
+        opacity: 0.7;
+    }
+
+}
+
+
+/* =========================
+   CONTEÚDO DO HERO
+========================= */
+
+.hero-content {
+    position: relative;
+
+    z-index: 3;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: flex-end;
+
+    padding: 80px 50px;
+}
+
+.hero-text {
+    max-width: 800px;
+
+    color: white;
+}
+
+.hero-number {
+    color: #c92d2d;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+.hero-subtitle {
+    font-size: 16px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 25px;
+}
+
+.hero-content h1 {
+    font-size: clamp(60px, 10vw, 150px);
+
+    line-height: 0.85;
+
+    font-weight: 900;
+
+    letter-spacing: -5px;
+
+    margin: 0;
+}
+
+.hero-content h1 span {
+    display: block;
+
+    color: #c92d2d;
+}
+
+.hero-description {
+    max-width: 600px;
+
+    margin-top: 30px;
+
+    font-size: 20px;
+
+    line-height: 1.6;
+
+    color: white;
+}
+
+
+/* =========================
+   SEÇÕES
+========================= */
+
+.secao {
+    padding: 140px 4%;
+}
+
+.container {
+    width: 100%;
+
+    max-width: 1700px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================
+   TÍTULOS
+========================= */
+
+.numero-secao {
+    display: block;
+
+    margin-bottom: 25px;
+
+    color: #c92d2d;
+
+    font-weight: 900;
+
+    font-size: 16px;
+}
+
+.mini-titulo {
+    margin-bottom: 20px;
+
+    color: #c92d2d;
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+}
+
+.titulo-principal,
+.titulo-secao {
+    max-width: 1200px;
+
+    font-size: clamp(55px, 7vw, 105px);
+
+    line-height: 0.9;
+
+    letter-spacing: -5px;
+
+    font-weight: 900;
+
+    margin-bottom: 70px;
+}
+
+.titulo-principal span,
+.titulo-secao span {
+    color: #c92d2d;
+}
+
+
+/* =========================
+   TEXTOS
+========================= */
+
+.texto-destaque {
+    max-width: 900px;
+
+    font-size: 29px;
+
+    line-height: 1.4;
+
+    font-weight: 700;
+
+    margin-bottom: 30px;
+}
+
+.texto-normal {
+    max-width: 900px;
+
+    font-size: 19px;
+
+    line-height: 1.8;
+
+    color: #666;
+}
+
+
+/* =========================
+   FOTO + TEXTO
+========================= */
+
+.bloco-duplo {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+
+/* =========================
+   IMAGENS
+========================= */
+
+.bloco-imagem {
+    width: 100%;
+
+    overflow: hidden;
+}
+
+.bloco-imagem img {
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    transition: transform 0.6s ease;
+}
+
+.bloco-imagem:hover img {
+    transform: scale(1.02);
+}
+
+
+/* =========================
+   TEXTO AO LADO
+========================= */
+
+.bloco-texto {
+    width: 100%;
+}
+
+.bloco-texto h2,
+.bloco-texto h3 {
+    font-size: clamp(35px, 4vw, 65px);
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 35px;
+
+    font-weight: 900;
+}
+
+.bloco-texto p {
+    margin-bottom: 25px;
+
+    font-size: 19px;
+
+    line-height: 1.75;
+
+    color: black;
+}
+
+.bloco-texto .texto-grande {
+    font-size: 27px;
+
+    line-height: 1.45;
+
+    font-weight: 700;
+
+    color: #111;
+}
+
+
+/* =========================
+   CORES
+========================= */
+
+.secao-cinza {
+    background: #f3f3f3;
+}
+
+.secao-escura {
+    background: #111;
+
+    color: white;
+}
+
+.secao-escura .bloco-texto p {
+    color: #bbb;
+}
+
+.secao-escura .bloco-texto .texto-grande {
+    color: white;
+}
+
+
+/* =========================
+   PASSOS
+========================= */
+
+.passo {
+    display: grid;
+
+    grid-template-columns: 55px 1fr;
+
+    gap: 20px;
+
+    padding: 25px 0;
+
+    border-top: 1px solid #ccc;
+}
+
+.passo span {
+    color: black;
+
+    font-weight: 900;
+
+    font-size: 20px;
+}
+
+.passo strong {
+    font-size: 19px;
+
+    letter-spacing: 1px;
+}
+
+.passo p {
+    margin-top: 8px;
+
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   COMPARAÇÃO
+========================= */
+
+.comparacao {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+}
+
+.comparacao-imagem {
+    width: 100%;
+
+    overflow: hidden;
+}
+
+.comparacao-imagem img {
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    transition: transform 0.6s ease;
+}
+
+.comparacao-item:hover img {
+    transform: scale(1.02);
+}
+
+
+/* =========================
+   TEXTO DA COMPARAÇÃO
+========================= */
+
+.comparacao-label {
+    margin-top: 30px;
+
+    color: #black;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+.comparacao-item h3 {
+    margin-top: 15px;
+
+    margin-bottom: 25px;
+
+    font-size: clamp(35px, 4vw, 60px);
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+}
+
+.comparacao-item > p:last-child {
+    max-width: 650px;
+
+    font-size: 20px;
+
+    line-height: 1.7;
+
+    color: black;
+}
+
+
+/* =========================
+   VS
+========================= */
+
+.vs {
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 85px;
+
+    height: 85px;
+
+    border-radius: 50%;
+
+    background: black;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+    z-index: 5;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 70px 8%;
+
+    background: white;
+
+    color: black;
+
+    text-align: center;
+}
+
+footer p {
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 14px;
+    }
+
+
+    /* HERO */
+
+    #hero .animated-title {
+        width: 90%;
+
+        padding: 25px;
+    }
+
+    #hero .animated-title span {
+        font-size: 45px;
+    }
+
+    .hero-content {
+        padding: 50px 25px;
+    }
+
+    .hero-content h1 {
+        font-size: 60px;
+    }
+
+
+    /* SEÇÕES */
+
+    .secao {
+        padding: 90px 25px;
+    }
+
+
+    /* TÍTULOS */
+
+    .titulo-principal,
+    .titulo-secao {
+        font-size: 50px;
+
+        letter-spacing: -3px;
+
+        margin-bottom: 45px;
+    }
+
+
+    /* TEXTO */
+
+    .texto-destaque {
+        font-size: 23px;
+    }
+
+
+    /* FOTO + TEXTO */
+
+    .bloco-duplo {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .bloco-imagem {
+        width: 100%;
+    }
+
+    .bloco-imagem img {
+        width: 100%;
+        height: auto;
+    }
+
+    .bloco-texto .texto-grande {
+        font-size: 23px;
+    }
+
+
+    /* COMPARAÇÃO */
+
+    .comparacao {
+        grid-template-columns: 1fr;
+
+        gap: 90px;
+    }
+
+    .comparacao-imagem {
+        width: 100%;
+    }
+
+    .comparacao-imagem img {
+        width: 100%;
+        height: auto;
+    }
+
+    .vs {
+        top: 50%;
+
+        width: 65px;
+
+        height: 65px;
+
+        font-size: 20px;
+    }
+
+}
